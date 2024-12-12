@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatema Chunawala - Graphic Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --pink: #EE7C9E;
+            --light-pink: #EDC2C9;
+            --light-purple: #D3D7E0;
+            --dark-text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--pink);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-pink);
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--pink);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: var(--pink);
+        }
+
+        /* Star styles */
+        .star {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z'/%3E%3C/svg%3E");
+            background-size: contain;
+            opacity: 0;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+            animation: twinkle 5s infinite;
+            pointer-events: none;
+        }
+
+        .star.pink {
+            filter: drop-shadow(0 0 5px rgba(238, 124, 158, 0.7));
+        }
+
+        .star.purple {
+            filter: drop-shadow(0 0 5px rgba(211, 215, 224, 0.7));
+        }
+
+        .star.yellow {
+            filter: drop-shadow(0 0 5px rgba(255, 223, 126, 0.7));
+        }
+
+        .star.mint {
+            filter: drop-shadow(0 0 5px rgba(162, 238, 188, 0.7));
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        /* About Section */
+        .about {
+            background-color: #B7BCE1;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        /* Hobbies & Work Sections */
+        .hobbies, .work {
+            padding: 4rem 2rem;
+            background-color: var(--light-purple);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--light-purple);
+            margin-bottom: 3rem;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: rgb(253, 247, 242);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .slider-btn {
+            background: var(--light-purple);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            transition: background-color 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: var(--pink);
+            color: white;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--pink);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -15px;
+        }
+
+        .col-md-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            padding: 15px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 0.25rem;
+            height: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            background-color: white;
+            border-radius: 0.25rem;
+            height: 100%;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-purple);
+            padding: 4rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            color: var(--pink);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .contact button {
+            background: var(--pink);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: fit-content;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .slide {
+                grid-template-columns: 1fr;
+            }
+
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Fatema Chunawala</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p>Graphic Designer</p>
+            <h1>Fatema<br>Chunawala</h1>
+            <p>Hi! I'm a 19-year-old Graphic Designer passionate about creativity and style—welcome to my world of design</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2>About me</h2>
+            <p>Hi! I'm a 19-year-old graphic design student with an endless passion for all forms of art. From music to makeup, painting to movies, and designing to fashion, I find inspiration everywhere. Art, in all its forms, has been a constant in my life, and I love exploring how each medium tells its own unique story.</p>
+            <p>Painting is one of my favorite hobbies—it helps me unwind and express my creativity freely. I also use fashion as a way to express myself; dressing up feels like putting together a living, wearable piece of art.</p>
+            <p>Movies are another big source of inspiration for me, especially when I'm feeling unmotivated or stuck in a creative slump. Comedy movies are my go-to—they never fail to lift my mood and remind me to keep things lighthearted.</p>
+            <p>Being a Cancer, I'm deeply emotional and intuitive, which I think helps me connect with the world around me and translate that into my work. I also love food—whether it's a home-cooked meal or trying out a new cuisine, I'm always excited to explore new flavors.</p>
+            <p>Ultimately, I want to experience everything life has to offer. Whether it's traveling, trying new hobbies, or diving into creative challenges, I'm driven by a desire to live fully and create work that truly reflects my passion for life.</p>
+        </div>
+    </section>
+
+    <section id="hobbies" class="hobbies">
+        <h2 class="section-title">My Hobbies</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/PAINTING HOBBY.jpg" alt="Painting">
+                        <div class="card-content">
+                            <h3>Painting</h3>
+                            <p>There's something magical about transforming a blank canvas into a story. It's my favorite way to unwind and express myself.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/TYPE P.jpg" alt="Typography">
+                        <div class="card-content">
+                            <h3>Typography</h3>
+                            <p>There's just something so cool about how the right fonts can totally change the vibe of a design.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/BTUHHH.jpg" alt="Packaging">
+                        <div class="card-content">
+                            <h3>Packaging</h3>
+                            <p>I love bringing ideas to life through design, creating identities that connect with people makes me happy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/FASHION DESIGN.jpg" alt="Fashion Designing">
+                        <div class="card-content">
+                            <h3>Fashion Designing</h3>
+                            <p>I love putting outfits together and creating styles that feel unique, it's like wearable art to me.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/READING.jpg" alt="Reading">
+                        <div class="card-content">
+                            <h3>Reading</h3>
+                            <p>Getting lost in a good book is my favorite escape; it's like stepping into a whole new world.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/VIDEO GAMES.jpg" alt="Video Games">
+                        <div class="card-content">
+                            <h3>Video Games</h3>
+                            <p>They're such a fun way to unwind and feel inspired.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev-slide">&lt;</button>
+                <button class="slider-btn next-slide">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title"> My Skills</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-palette-fill"></i>
+                        <h5>Photoshop</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-vector-pen"></i>
+                        <h5>Figma</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-pencil-fill"></i>
+                        <h5>Illustrator</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-book-fill"></i>
+                        <h5>InDesign</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-camera-reels-fill"></i>
+                        <h5>Premiere Pro</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skill-card">
+                        <i class="bi bi-code-slash"></i>
+                        <h5>Coding</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <h2 class="section-title">My Work</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/paciist.jpg" alt="Pacifist">
+                        <div class="card-content">
+                            <h3>Pacifist</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/H copy.jpg" alt="Hero">
+                        <div class="card-content">
+                            <h3>Hero</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/Bad Tomato.jpg" alt="Bad Tomato">
+                        <div class="card-content">
+                            <h3>Bad Tomato</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/GIRL.jpg" alt="Love">
+                        <div class="card-content">
+                            <h3>Love</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/bon appetit.jpg" alt="bon appetit">
+                        <div class="card-content">
+                            <h3>bon appetit</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/Fatema_chunawala_portfolio/meow copy.jpg" alt="Spirit Animal">
+                        <div class="card-content">
+                            <h3>Spirit Animal</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev-slide">&lt;</button>
+                <button class="slider-btn next-slide">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Let's Connect</h2>
+            <p>Whether it's a new project or just a chat about art, I'd love to hear from you.</p>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Type your message here" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to create stars
+            function createStars(container, count, colors) {
+                for (let i = 0; i < count; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    // Add random color class
+                    const colorClass = colors[Math.floor(Math.random() * colors.length)];
+                    star.classList.add(colorClass);
+                    
+                    // Random position
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random animation delay
+                    star.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    // Random rotation
+                    star.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    container.appendChild(star);
+                }
+            }
+
+            // Add stars to hero section
+            const hero = document.querySelector('.hero');
+            createStars(hero, 30, ['pink', 'purple', 'yellow']);
+
+            // Add stars to about section
+            const about = document.querySelector('.about');
+            createStars(about, 25, ['mint']);
+
+            const sliders = document.querySelectorAll('.slider');
+            const prevButtons = document.querySelectorAll('.prev-slide');
+            const nextButtons = document.querySelectorAll('.next-slide');
+
+            sliders.forEach((slider, index) => {
+                let currentSlide = 0;
+                const slides = slider.children;
+                const slideCount = slides.length;
+
+                function updateSlider() {
+                    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                prevButtons[index].addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                    updateSlider();
+                });
+
+                nextButtons[index].addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    updateSlider();
+                });
+
+                // Add hover effect for work section
+                if (slider.closest('.work')) {
+                    slider.addEventListener('mouseenter', () => {
+                        currentSlide = (currentSlide + 1) % slideCount;
+                        updateSlider();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
